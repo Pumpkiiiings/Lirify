@@ -29,5 +29,10 @@
   "devDependencies": {
     "nexe": "^4.0.0-rc.6",
     "pkg": "^5.8.1"
+  },
+  "pkg": {
+    "assets": [
+      "plugins/*.js"
+    ]
   }
 }

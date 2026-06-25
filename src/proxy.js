@@ -49,8 +49,33 @@ class LirifyProxy {
 
   async initializeProxy() {
     this._registerCoreCommands();
+    this._extractDefaultPlugins();
     await this.pluginAPI.loadPlugins();
     this._createServer();
+  }
+
+  _extractDefaultPlugins() {
+    if (!process.pkg) return;
+    
+    const { getPluginsDir } = require('./utils/paths');
+    const targetDir = getPluginsDir();
+    const sourceDir = path.join(__dirname, '..', 'plugins');
+    
+    if (!fs.existsSync(targetDir)) {
+      fs.mkdirSync(targetDir, { recursive: true });
+    }
+    
+    if (fs.readdirSync(targetDir).length === 0) {
+      if (fs.existsSync(sourceDir)) {
+        const files = fs.readdirSync(sourceDir);
+        for (const file of files) {
+          if (file.endsWith('.js')) {
+            fs.copyFileSync(path.join(sourceDir, file), path.join(targetDir, file));
+          }
+        }
+        console.log(`[Lirify] Plugins por defecto extraídos en ${targetDir}`);
+      }
+    }
   }
 
   _createServer() {
