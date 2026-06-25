@@ -1,0 +1,33 @@
+{
+  "name": "lirify",
+  "version": "1.0.0",
+  "description": "A Minecraft proxy for Hypixel with world state reconstruction, multi-version support, and versioned plugin API.",
+  "main": "src/proxy.js",
+  "bin": "src/proxy.js",
+  "scripts": {
+    "start": "node src/proxy.js",
+    "dev": "node src/proxy.js"
+  },
+  "keywords": [
+    "minecraft",
+    "proxy",
+    "hypixel",
+    "plugin"
+  ],
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "adm-zip": "^0.5.17",
+    "commander": "^14.0.0",
+    "lodash": "^4.17.21",
+    "minecraft-protocol": "^1.57.0",
+    "node-forge": "^1.3.1",
+    "prismarine-auth": "^2.7.0",
+    "semver": "^7.6.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "nexe": "^4.0.0-rc.6",
+    "pkg": "^5.8.1"
+  }
+}
