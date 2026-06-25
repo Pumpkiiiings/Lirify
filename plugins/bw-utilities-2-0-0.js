@@ -980,6 +980,9 @@ var require_ChatHandler = __commonJS({
           );
           return;
         }
+        if (stats.isNicked) {
+          return;
+        }
         let ping = null;
         if (this.api.config.get("stats.showPing")) {
           const uuid = await this.apiService.getUuid(playerName);
