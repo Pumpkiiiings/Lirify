@@ -15,21 +15,7 @@ console.log('📁 Creating dist/ structure...');
 fs.mkdirSync(path.join(DIST, 'plugins'), { recursive: true });
 fs.mkdirSync(path.join(DIST, 'config'), { recursive: true });
 
-// ── 2. Copy plugins ──
-console.log('🔌 Copying plugins...');
-const pluginsDir = path.join(ROOT, 'plugins');
-const distPluginsDir = path.join(DIST, 'plugins');
-if (fs.existsSync(pluginsDir)) {
-  for (const file of fs.readdirSync(pluginsDir)) {
-    if (file.endsWith('.js')) {
-      fs.copyFileSync(
-        path.join(pluginsDir, file),
-        path.join(distPluginsDir, file)
-      );
-      console.log(`   ✓ ${file}`);
-    }
-  }
-}
+// ── 2. (Removed plugin copying, since exe will use Desktop/Lirify) ──
 
 // ── 3. Compile exe with pkg ──
 console.log('\n⚙️  Compiling lirify.exe (this may take a few minutes)...');
@@ -58,8 +44,10 @@ const readme = `# Lirify Proxy v${require('./package.json').version}
 ## Archivos
 
 - lirify.exe   — El proxy (doble clic para arrancar)
-- plugins/     — Pon tus plugins .js aqui
-- config/      — Configuracion (se genera automaticamente)
+
+NOTA: Al abrir el proxy por primera vez, se generara automaticamente 
+una carpeta llamada "Lirify" en tu ESCRITORIO. Ahi deberas meter 
+tus plugins .js y encontraras la configuracion.
 
 ## Comandos en el chat
 

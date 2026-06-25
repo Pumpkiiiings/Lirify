@@ -3,18 +3,13 @@ const path = require('path');
 const os = require('os');
 
 function getBaseDir() {
-  if (process.env.PORTABLE_EXECUTABLE_DIR) {
-    return process.env.PORTABLE_EXECUTABLE_DIR;
-  }
   if (process.pkg) {
-    return path.dirname(process.execPath);
+    // Si se ejecuta como .exe compilado, crea la carpeta en el Escritorio
+    return path.join(os.homedir(), 'Desktop', 'Lirify');
   }
-  const resolved = path.resolve(__dirname, '..', '..');
-  // If we are inside an ASAR, fallback to a writable user directory
-  if (resolved.includes('app.asar')) {
-    return path.join(os.homedir(), 'LirifyProxy');
-  }
-  return resolved;
+  
+  // Durante el desarrollo local, usa la carpeta del proyecto
+  return path.resolve(__dirname, '..', '..');
 }
 
 function getConfigDir()       { return path.join(getBaseDir(), 'config'); }
