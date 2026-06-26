@@ -2,6 +2,9 @@
 
 El sistema de eventos te permite reaccionar a cosas que ocurren en el proxy, o interceptar y modificar paquetes de red en tiempo real.
 
+> [!NOTE]
+> **Riesgo general:** Escuchar eventos (`on`, `everyTick`) tiene **Nulo (0%) riesgo**, ya que no modificas el tráfico hacia el servidor. Sin embargo, **interceptar paquetes** tiene riesgo.
+
 ## Escuchar Eventos (Solo Lectura)
 
 ### `api.on(eventName, handler)`
@@ -27,6 +30,9 @@ Ejecuta la función 20 veces por segundo (sincronizado con los ticks de Minecraf
 ## Interceptar Paquetes (Modificar/Cancelar)
 
 Los interceptores te permiten leer paquetes de red y **cancelarlos** o **modificarlos** antes de que lleguen a su destino.
+
+> [!CAUTION]
+> **Riesgo Alto:** Cancelar o modificar paquetes importantes del cliente al servidor (como `packet:server:position`, `packet:server:keep_alive`, o transacciones) puede causar que el AntiCheat del servidor te detecte y te dé un Kick o Ban casi de inmediato. Asegúrate de saber qué paquete estás interceptando.
 
 ### `api.intercept(packetName, handler)`
 Intercepta un paquete específico. 

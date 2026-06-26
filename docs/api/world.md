@@ -2,6 +2,9 @@
 
 Este módulo te permite inspeccionar el estado actual del mundo (bloques cargados en memoria) y enviar paquetes falsos para modificar visualmente el mundo para el jugador local.
 
+> [!NOTE]
+> **Riesgo general:** Al ser operaciones de lectura y paquetes 100% visuales, todo este módulo tiene **Nulo (0%) riesgo**. Sin embargo, ten en cuenta que si el jugador intenta caminar sobre bloques falsos, el servidor detectará "fly" y lo expulsará o baneará.
+
 ## Leer el Estado del Mundo
 
 Lirify incluye un sistema (`api.world`) que hace tracking de todos los chunks y bloques alrededor del jugador. Todo esto se obtiene **de forma sincrónica** (sin promesas) desde la memoria local.

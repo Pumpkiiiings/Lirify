@@ -2,6 +2,9 @@
 
 Lirify incluye funciones integradas que facilitan la extracción de datos de Hypixel leyendo automáticamente los paquetes y mensajes de chat en segundo plano.
 
+> [!NOTE]
+> **Riesgo general:** La mayoría de métodos aquí leen de caché y tienen **Nulo (0%) riesgo**. Sin embargo, las versiones "Async" ejecutan comandos reales.
+
 ## Información de Party
 
 El proxy mantiene un tracking interno de tu party leyendo los mensajes "Party >".
@@ -11,6 +14,8 @@ Retorna la información conocida de tu party de forma **síncrona** (inmediata, 
 - **Retorno:** Objeto con `{ leader: String, members: Array<String> }` o `null` si no estás en party.
 
 ### `api.getPartyInfoAsync()`
+> [!WARNING]
+> **Riesgo Medio:** Ejecuta el comando `/party list` en el servidor de forma oculta. Llamarlo muy rápido repetidas veces puede provocar que Hypixel te muttee por hacer spam de comandos o te desconecte. Úsalo con moderación.
 Usa promesas. Ejecuta un comando `/party list` de forma oculta en el servidor y espera a leer la respuesta para garantizar que los datos estén 100% actualizados.
 - **Retorno:** `Promise<{ leader, members }>`
 

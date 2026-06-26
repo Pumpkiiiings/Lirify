@@ -2,6 +2,9 @@
 
 Esta categoría te permite buscar jugadores y modificar cómo se ven sus nombres en la pantalla (como su prefijo en la tablist o su tag).
 
+> [!NOTE]
+> **Riesgo general:** Leer información de jugadores y modificar sus nombres (Display Names) ocurre localmente en tu cliente de Minecraft. Por lo tanto, tiene **Nulo (0%) riesgo** de baneo.
+
 ## Obtener Jugadores
 
 ### `api.players`

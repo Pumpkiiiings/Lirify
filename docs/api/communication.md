@@ -2,6 +2,9 @@
 
 Estos métodos te permiten enviarle mensajes, títulos y sonidos al jugador local de forma visual. **Todo lo que envíes usando estos métodos solo lo verá el jugador que usa el proxy**, no los demás jugadores del servidor.
 
+> [!NOTE]
+> **Riesgo general:** La mayoría de estos métodos son **Nulos (0% riesgo)** ya que son 100% visuales para el cliente. La única excepción es enviar mensajes al servidor.
+
 ## Mensajes y Chat
 
 ### `api.chat(message)`
@@ -12,6 +15,8 @@ Envía un mensaje al chat del jugador local.
 Igual que `api.chat`, pero con soporte para hover (texto al pasar el ratón) o clics. Formato interno de JSON chat de Minecraft.
 
 ### `api.sendChatToServer(message)`
+> [!WARNING]
+> **Riesgo Medio:** Este método interactúa con el servidor. Si envías demasiados mensajes muy rápido, el servidor te muteará o baneará por Spam.
 Envía un mensaje *hacia el servidor*, como si el jugador lo hubiera escrito. Este mensaje **sí lo verán los demás** o ejecutará un comando en el servidor.
 
 ### `api.sendActionBar(message)`

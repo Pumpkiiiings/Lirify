@@ -4,6 +4,9 @@ Te permite generar entidades falsas (NPCs, armaduras, items tirados) y moverlas 
 
 Todas las entidades "falsas" (client-side) deben tener un Entity ID. Es recomendable usar IDs altos (ej: `1000000+`) para evitar que choquen con las entidades reales del servidor.
 
+> [!NOTE]
+> **Riesgo general:** La creación y manipulación de entidades **FALSAS** tiene **Nulo (0%) riesgo**, ya que el servidor no tiene idea de que existen. Sin embargo, no intentes atacar entidades falsas o el anticheat te desconectará por enviar paquetes de ataque hacia una entidad que no existe en el servidor.
+
 ## Spawnear Entidades
 
 ### `api.spawnPlayer(entityId, uuid, x, y, z, yaw, pitch, currentItem)`

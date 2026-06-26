@@ -2,6 +2,9 @@
 
 Permite abrir menús personalizados, cambiar ítems y crear interfaces engañando al cliente.
 
+> [!NOTE]
+> **Riesgo general:** Leer ventanas y abrir menús personalizados (client-side) tiene **Nulo (0%) riesgo**. Sin embargo, enviar acciones forzadas (transacciones) al servidor tiene **Riesgo Alto**.
+
 ## Ventanas
 
 ### `api.openWindow(windowId, windowType, windowTitle, slots, entityId)`
@@ -44,7 +47,11 @@ Cambia el ítem que el jugador tiene seleccionado en la hotbar (0 a 8).
 ## Acciones (Engañar al cliente)
 
 ### `api.sendTransaction(windowId, action, accepted)`
+> [!CAUTION]
+> **Riesgo Alto:** Enviar transacciones inválidas, clicks muy rápidos o desincronizados al servidor provocará que el AntiCheat te desconecte (kick) de inmediato por "Inventory desync" o te banee.
 Fuerza la confirmación o cancelación de un click en el inventario.
 
 ### `api.enchantItem(windowId, enchantmentPosition)`
+> [!CAUTION]
+> **Riesgo Alto:** Igual que las transacciones, simular encantamientos sin estar en una mesa válida te desconectará.
 Simula una acción en la mesa de encantamientos.

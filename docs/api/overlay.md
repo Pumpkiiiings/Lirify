@@ -4,6 +4,9 @@ La API de Overlay funciona en conjunto con **Lirify Injectable** (un mod C++ opc
 
 Para interactuar, usas el objeto `api.overlay`.
 
+> [!NOTE]
+> **Riesgo general:** Dibujar interfaces gráficas con Lirify Injectable tiene **Nulo (0%) riesgo**. Es completamente indetectable por el servidor ya que es una modificación puramente visual de tu cliente.
+
 ### `api.overlay.registerWidget(widget)`
 Registra un nuevo elemento en la pantalla.
 - **widget** (`Object`): Configuración del elemento gráfico.

@@ -2,6 +2,9 @@
 
 Estos métodos te permiten definir la identidad de tu plugin, manejar su configuración, registrar comandos y hacer logs en la consola.
 
+> [!NOTE]
+> **Riesgo general:** Estas herramientas son de sistema y locales. La gran mayoría tiene **Nulo (0%) riesgo**. Solo un par de métodos avanzados interactúan con la red.
+
 ## Metadatos
 
 ### `api.metadata(meta)`
@@ -70,6 +73,8 @@ Desconecta al jugador del proxy con el motivo indicado.
 Envía un paquete KeepAlive al cliente (usado internamente o para engañar al ping).
 
 ### `api.sendCustomPayload(channel, data)`
+> [!WARNING]
+> **Riesgo Medio:** Enviar Plugin Messages extraños puede hacer que el servidor te desconecte.
 Envía un CustomPayload (Plugin Message) al cliente de Minecraft.
 
 ### `api.getLirifyAPIVersion()`
