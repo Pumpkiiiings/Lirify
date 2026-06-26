@@ -36,7 +36,7 @@ module.exports = {
                     
                     for (const player of data.data) {
                         let update = {
-                            uuid: player.UUID,
+                            uuid: player.uuid || player.UUID,
                             action: data.action
                         };
                         

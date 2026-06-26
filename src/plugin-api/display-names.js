@@ -226,7 +226,7 @@ class DisplayNames {
         const displayNameJSON = JSON.stringify({ text: displayName });
         this.proxy.currentPlayer.client.write('player_info', {
             action: 3,
-            data: [{ UUID: uuid, displayName: displayNameJSON }]
+            data: [{ UUID: uuid, uuid: uuid, displayName: displayNameJSON }]
         });
     }
     

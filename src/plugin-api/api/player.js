@@ -229,9 +229,13 @@ class Players {
         if (!this.proxy.currentPlayer?.client) return false;
         
         try {
+            const safeData = data.map(p => {
+                const id = p.uuid || p.UUID;
+                return { ...p, UUID: id, uuid: id };
+            });
             return this.proxy.currentPlayer.client.write('player_info', {
                 action,
-                data
+                data: safeData
             });
         } catch (error) {
             this.core.log(`Failed to send player info: ${error.message}`);
